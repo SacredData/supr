@@ -1,0 +1,14 @@
+{
+  "binaries": {
+    "ffprobe": "/usr/bin/ffprobe"
+  },
+  "defaults": {
+    "id": "suprnova/pool",
+    "key": null,
+    "profile": "work"
+  },
+  "encoders": {
+    "ffmpeg": "/usr/bin/ffmpeg",
+    "intel": null
+  }
+}

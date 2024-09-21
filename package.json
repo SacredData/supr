@@ -1,0 +1,65 @@
+{
+  "name": "suprnova-cfs",
+  "version": "0.4.0",
+  "description": "CFS command line for Suprnova",
+  "main": "cli.js",
+  "scripts": {
+    "package": "rm -rf builds && npm run pkg && ./package.sh",
+    "pkg": "pkg package.json -o builds/supr",
+    "testpool": "pm2 start testpool.sh --watch",
+    "test": "nyc mocha"
+  },
+  "bin": {
+    "supr": "./cli.js"
+  },
+  "pkg": {
+    "assets": [
+      "./node_modules/utp-native/prebuilds/**",
+      "./node_modules/sodium-native/prebuilds/**",
+      "./node_modules/noise-network/node_modules/utp-native/prebuilds/**",
+      "./node_modules/noise-network/node_modules/sodium-native/prebuilds/**"
+    ],
+    "scripts": "lib/*.js",
+    "targets": [
+      "node10-linux-x64",
+      "node10-macos-x64",
+      "node10-win-x64"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littlstar/suprnova-cfs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/littlstar/suprnova-cfs/issues"
+  },
+  "homepage": "https://github.com/littlstar/suprnova-cfs#readme",
+  "dependencies": {
+    "cfsnet": "github:arablocks/cfsnet",
+    "commander": "^2.17.1",
+    "cross-zip": "^2.1.5",
+    "debug": "^4.1.0",
+    "feed": "^2.0.1",
+    "ffmpeg-on-progress": "^1.0.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^7.0.1",
+    "multiplex": "^6.7.0",
+    "node-ipc": "^9.1.1",
+    "noise-network": "^1.0.1",
+    "pino": "^5.4.0",
+    "pump": "^3.0.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "resemblejs": "^3.0.0",
+    "sodium-native": "^2.2.3",
+    "systeminformation": "^3.49.4",
+    "unzipper": "^0.9.10",
+    "utp-native": "^2.1.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1"
+  }
+}
